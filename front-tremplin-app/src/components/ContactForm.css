@@ -1,0 +1,358 @@
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Conteneur principal */
+.contact-form-container {
+    height: 100vh; 
+    width: 100vw; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('/salon.png') center/cover no-repeat; 
+    
+    padding: 20px; 
+    overflow-y: auto; 
+}
+
+/* Formulaire */
+.contact-form {
+    background: transparent; 
+    padding: 30px 40px; 
+    border-radius: 16px;
+    max-width: 1200px; 
+    width: 95%; 
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    column-gap: 100px; 
+    row-gap: 10px;    
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5); 
+    max-height: calc(100vh - 40px);
+}
+
+/* Titre principal */
+.form-title {
+    grid-column: 1 / -1; 
+    color: #fff; 
+    font-family: 'Arial Black', sans-serif; 
+    font-size: 2.2em;
+    text-align: left;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+/* Titres de section */
+.section-title {
+    color: #fff; /* Jaune */
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #fff; 
+    padding-bottom: 5px;
+}
+
+/* Sections du formulaire */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.coords-section {
+    grid-column: 1 / 2; /* Colonne 1 */
+}
+
+.message-section {
+    grid-column: 2 / 3; /* Colonne 2 */
+    grid-row: auto / span 2; 
+}
+
+.disponibilites-section {
+    grid-column: 1 / 2; 
+}
+
+
+/* Styles des champs texte et textarea */
+.text-input,
+.textarea-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    font-size: 1em;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease;
+}
+
+.text-input:focus,
+.textarea-input:focus,
+.select-input:focus {
+    border-color: #F8B400; 
+    box-shadow: 0 0 8px rgba(248, 180, 0, 0.3);
+    outline: none;
+}
+
+.textarea-input {
+    min-height: 120px; 
+    resize: vertical;
+}
+
+/* Groupes de boutons radio */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 15px; 
+    margin-bottom: 10px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff; 
+}
+
+.radio-label input[type="radio"] {
+    appearance: none; 
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.radio-label input[type="radio"]:checked {
+    border-color: #F8B400; 
+    background-color: #F8B400;
+}
+
+.radio-label input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Conteneur pour les 3 selects et le bouton AJOUTER (alignement horizontal) */
+.dispo-input-group {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+}
+
+/* Styles des SELECTS dans le groupe de saisie */
+.dispo-input-group .select-input {
+    height: 50px; 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 25px;
+    background-color: #fff; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #4A2B70;
+    font-weight: bold;
+    flex-grow: 1; 
+    padding-right: 35px; 
+    background-position: right 12px center;
+    background-size: 10px;
+}
+
+/* Bouton AJOUTER DISPO */
+.dispo-input-group .add-dispo-btn {
+    background-color: #4A2B70; 
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9em;
+    font-weight: bold;
+    flex-shrink: 0; 
+    height: 50px;
+    margin-top: 0; 
+    transition: background-color 0.3s ease;
+}
+
+.dispo-input-group .add-dispo-btn:hover {
+    background-color: #372054; 
+}
+
+/* Styles pour les disponibilités DÉJÀ ENREGISTRÉES*/
+.dispo-list-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+}
+
+.dispo-item-saved {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-radius: 8px; 
+    padding: 8px 15px;
+    color: #fff; 
+    font-size: 1em;
+    font-weight: 500;
+}
+
+/* Bouton de suppression des pastilles enregistrées (le 'x' à droite) */
+.remove-saved-btn {
+    background: transparent;
+    border: none;
+    color: #fff; 
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 0 5px;
+    line-height: 1;
+    opacity: 0.8;
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.remove-saved-btn:hover {
+    opacity: 1;
+    color: #F8B400; 
+}
+
+.remove-icon {
+    font-weight: bold;
+    font-size: 1em;
+    line-height: 1;
+}
+
+
+/* Bouton ENVOYER */
+.submit-section {
+    grid-column: 1 / -1; 
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.submit-btn {
+    background-color: #F8B400; 
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(248, 180, 0, 0.4);
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: #e0a300; 
+}
+
+.submit-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Messages de résultat */
+.result-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.result-message.success {
+    background-color: rgba(230, 255, 230, 0.9);
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.result-message.error {
+    background-color: rgba(255, 230, 230, 0.9);
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .contact-form {
+        grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
+        padding: 20px 25px;
+        gap: 25px;
+    }
+
+    .form-title {
+        font-size: 1.8em;
+        text-align: center;
+    }
+
+    /* Les trois sections s'empilent */
+    .coords-section,
+    .message-section,
+    .disponibilites-section {
+        grid-column: 1 / -1;
+        grid-row: auto; 
+    }
+
+    /* Gestion des selects de disponibilité pour les petits écrans */
+    .dispo-input-group {
+        flex-wrap: wrap; 
+    }
+    
+    .dispo-input-group .select-input {
+        /* Les trois selects prennent 1/3 de la largeur moins l'espace */
+        flex-basis: calc(33.33% - 7px);
+        min-width: 70px;
+    }
+    
+    .dispo-input-group .add-dispo-btn {
+        width: 100%; /* Le bouton prend toute la largeur */
+    }
+
+    .submit-btn {
+        width: 100%; 
+        text-align: center;
+    }
+
+    .submit-section {
+        justify-content: center; 
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-form {
+        padding: 15px 20px;
+    }
+
+    .form-title {
+        font-size: 1.5em;
+    }
+
+    .radio-group {
+        flex-direction: column;
+    }
+    
+    .dispo-input-group .select-input {
+        /* Sur très petit écran, les selects s'empilent ou prennent 1/2 de la largeur */
+        flex-basis: calc(50% - 5px); 
+    }
+}
